@@ -37,6 +37,10 @@ export class ShopService {
     return this.http.get<any>(this.baseUrl + 'products', {params});
   }
 
+  getProduct(id: number) {
+    return this.http.get<any> (this.baseUrl + 'products' + id);
+  }
+
   getBrands() {
     this.http.get<string[]>(this.baseUrl + 'brands').subscribe({
       next: response => this.brands = response,
