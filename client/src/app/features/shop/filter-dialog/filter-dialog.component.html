@@ -1,0 +1,34 @@
+<div class="filter-container">
+    <div class="filter-section">
+      <h3>Brands</h3>
+      <div class="brand">
+        @for (brand of shopService.brands; track $index) {
+          <label class="type-item">
+            <input 
+              type="checkbox" 
+              [value]="brand" 
+              (change)="onBrandSelect(brand, $event)" 
+            />
+            {{ brand }}
+          </label>
+        }
+      </div>
+      <h3>Types</h3>
+      <div class="brand">
+        @for (type of shopService.types; track $index) {
+          <label class="type-item">
+            <input 
+              type="checkbox" 
+              [value]="type" 
+              (change)="onTypeSelect(type, $event)" 
+            />
+            {{ type }}
+          </label>
+        }
+      </div>
+      
+      <div class="apply-filter">
+        <button (click)="applyFilters()">Apply Filters</button>
+      </div>      
+  </div>
+  
