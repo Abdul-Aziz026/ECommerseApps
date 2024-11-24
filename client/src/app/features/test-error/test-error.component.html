@@ -1,0 +1,17 @@
+<h2>Error Test Page...!</h2>
+<div>
+    <button (click)="get400Error()">Badrequest 400 Error</button>
+    <button (click)="get401Error()">Unauthorized 401 Error</button>
+    <button (click)="get404Error()">Notfound 404 Error</button>
+    <button (click)="get500Error()">Internalerror 500 Error</button>
+    <button (click)="get405ValidationError()">Test Validation Error</button>
+</div>
+
+@if (validationErrors) {
+    <div>
+        @for (error of validationErrors; track $index) {
+            {{error}}
+        }
+    </div>
+}
+
