@@ -1,1 +1,20 @@
-<p>product-details works!</p>
+@if(product) {
+    <div class="product-container">
+        <div class="product-image">
+            <img src="{{product.pictureUrl}}" alt="Product Image" />
+        </div>
+        <div class="product-details">
+            <h2 class="product-name">{{product.name}}</h2>
+            <p class="product-price">Price: ${{product.price}}</p>
+            <div class="product-actions">
+                <input type="number" min="1" value="1" class="quantity-input" />
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+            <div class="product-description">
+                <p>
+                    {{product.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+}

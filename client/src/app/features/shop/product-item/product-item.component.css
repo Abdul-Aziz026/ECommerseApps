@@ -11,6 +11,7 @@
     background-color: #fff; /* White background for the card */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    cursor: pointer;
 }
 
 .product-card:hover {

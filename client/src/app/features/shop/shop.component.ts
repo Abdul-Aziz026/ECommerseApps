@@ -78,6 +78,9 @@ export class ShopComponent implements OnInit{
           complete: () => console.log("Complete to fetch from getProduct()")
         });
         }
+        this.selectedBrands = [];
+        this.selectedTypes = [];
+        this.searchByBrand = [];
       }
     })
   }
@@ -93,6 +96,9 @@ export class ShopComponent implements OnInit{
       error: error => console.log(error),
       complete: () => console.log("Complete to fetch from getProduct()")
     });
+    this.selectedBrands = [];
+    this.selectedTypes = [];
+    this.searchByBrand = [];
   }
 
 }

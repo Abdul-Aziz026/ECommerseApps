@@ -38,7 +38,8 @@ export class ShopService {
   }
 
   getProduct(id: number) {
-    return this.http.get<any> (this.baseUrl + 'products' + id);
+    console.log("ServiceLayer: " + id);
+    return this.http.get<any> (this.baseUrl + 'products/' + id);
   }
 
   getBrands() {
