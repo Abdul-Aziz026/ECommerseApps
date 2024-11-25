@@ -128,3 +128,4 @@ C:\Users\azizur\Learn\Project\ECommerseApp\ECommerseApp\obj\Debug\net8.0\refint\
 C:\Users\azizur\Learn\Project\ECommerseApp\ECommerseApp\obj\Debug\net8.0\ECommerseApp.pdb
 C:\Users\azizur\Learn\Project\ECommerseApp\ECommerseApp\obj\Debug\net8.0\ECommerseApp.genruntimeconfig.cache
 C:\Users\azizur\Learn\Project\ECommerseApp\ECommerseApp\obj\Debug\net8.0\ref\ECommerseApp.dll
+C:\Users\azizur\Learn\Project\ECommerseApp\ECommerseApp\obj\Debug\net8.0\ECommerseApp.MvcApplicationPartsAssemblyInfo.cs

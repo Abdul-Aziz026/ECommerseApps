@@ -7,12 +7,13 @@ namespace Infrastructure.Services
 {
     public class CartService : ICartService
     {
-        private readonly IConnectionMultiplexer redis;
+        private readonly IConnectionMultiplexer _redis;
         private readonly IDatabase _database;
-        public CartService(ConnectionMultiplexer _redis)
+
+        public CartService(IConnectionMultiplexer redis) // Use the interface here
         {
-            redis = _redis;
-            _database = redis.GetDatabase();
+            _redis = redis; // Assign the resolved interface
+            _database = _redis.GetDatabase(); // Access the database
         }
         public async Task<bool> DeleteCartAsync(string key)
         {

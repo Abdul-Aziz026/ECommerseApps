@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerseApp.Controllers
 {
+    [ApiController]
+    [Route("api/cart")]
     public class CartController : Controller
     {
         private readonly ICartService cartService;
