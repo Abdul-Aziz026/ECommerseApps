@@ -7,10 +7,16 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding-top: 70px;
 }
 
 /* Header styling */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,6 +24,15 @@ header {
     background-color: #333;
     color: #fff;
 }
+
+mat-progress-bar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
 
 header .logo img {
     width: 50px; /* Adjust logo size */
