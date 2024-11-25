@@ -1,8 +1,13 @@
 using Core.Interface;
 using ECommerseApp.Middleware;
 using Infrastructure.Data;
+using Infrastructure.Services;
+using Microsoft.Extensions.Logging;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.AddConsole(); // Add this to enable console logging.
 
 
 builder.Services.AddControllers();
@@ -25,6 +30,22 @@ builder.Services.AddSingleton<MongoDbContext>(sp =>
 
     return new MongoDbContext(connectionUri, databaseName);
 });
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+{
+    var connString = builder.Configuration.GetConnectionString("Redis");
+
+    if (string.IsNullOrEmpty(connString))
+    {
+        throw new Exception("Cannot get Redis connection string.");
+    }
+
+    var configuration = ConfigurationOptions.Parse(connString, true);
+    return ConnectionMultiplexer.Connect(configuration);
+});
+
+// Register CartService
+builder.Services.AddSingleton<ICartService, CartService>();
 
 
 var app = builder.Build();
