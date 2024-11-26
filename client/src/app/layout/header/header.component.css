@@ -53,30 +53,43 @@ nav.nav-center a {
 nav.nav-center a:hover {
     text-decoration: underline;
 }
-
-.auth-buttons button {
-    margin-left: 10px;
-    padding: 8px 15px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+.auth-buttons {
+    display: flex; /* Enable flexbox */
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Add space between buttons */
 }
 
 .shopcart {
-    background-color: #f39c12;
-    color: #fff;
+    background: lightblue;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 20%;
+    color: #121064; /* Adjust the icon color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.login {
-    background-color: #3498db;
-    color: #fff;
+.shopcart:hover {
+    color: #007bff; /* Change color on hover */
+    /* border: 1px solid lightblue; */
 }
 
-.register {
-    background-color: #2ecc71;
-    color: #fff;
+.login, .register {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    transition: background-color 0.3s;
 }
 
-.auth-buttons button:hover {
-    opacity: 0.8;
+.login:hover, .register:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
