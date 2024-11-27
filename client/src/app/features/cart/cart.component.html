@@ -1,2 +1,8 @@
 <div class="container-for-top"></div>
-<p>cart works!</p>
+<section>
+    <div>
+        @for (item of cartService.cart()?.items; track $index) {
+            <app-cart-item [item]="item"></app-cart-item>/>
+        }
+    </div>
+</section>

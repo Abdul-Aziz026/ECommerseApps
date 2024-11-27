@@ -1,0 +1,21 @@
+<div class="container-for-top"></div>
+
+<div class="container-for-top"></div>
+
+<div class="cart-item">
+  <div class="one">
+    <a [routerLink]="'/shop/' + item().productId">
+      <img [src]="item().pictureUrl" alt="Product Image">
+    </a>
+  </div>
+
+  <div class="two">
+    <span>{{ item().productName }}</span>
+    <button>Delete</button>
+  </div>
+
+  <div class="three">
+    <span>- {{ item().quantity }} + Total Price: ${{ item().price * item().quantity }}</span>
+  </div>
+</div>
+

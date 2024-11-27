@@ -10,3 +10,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-snack-bar-container.snack-success {
     color: green;
 }
+
+#initial-splash {
+    /* width: 20px;
+    height: 20px; */
+    align-items: center;
+}
+
+.logo-image {
+    margin-top: 60px;
+    margin-left: 300px;
+    width: 200px;
+    height:200px;
+    background-color: blue;
+}
