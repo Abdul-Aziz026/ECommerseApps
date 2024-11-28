@@ -1,0 +1,21 @@
+<div class="mt-4">
+    <h2>Order Summary</h2>
+    <div>
+        <div class="cart-summary">
+            <p class="total">Subtotal: ${{cartService.totals()?.subtotal}}</p>
+            <p>Discount: -${{cartService.totals()?.discount}}</p>
+            <p>Delivery Fee: ${{cartService.totals()?.shipping}}</p>
+            <p>Totol: ${{cartService.totals()?.total}}</p>
+        </div>
+        <div>
+            <button routerLink="/shop" class="btn">Continue Shopping</button>
+            <button routerLink="/checkout" class="btn">Checkout</button>
+        </div>
+    </div>
+    <div class="voucher-form">
+        <div><input type="text" placeholder="Enter voucher code" class="voucher-input"></div>
+        <div><button class="voucher-btn">Apply Voucher</button></div>
+    </div>
+    
+    
+</div>

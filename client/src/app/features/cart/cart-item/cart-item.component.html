@@ -1,21 +1,26 @@
-<div class="container-for-top"></div>
 
-<div class="container-for-top"></div>
+<div class="container">  
 
-<div class="cart-item">
-  <div class="one">
-    <a [routerLink]="'/shop/' + item().productId">
-      <img [src]="item().pictureUrl" alt="Product Image">
-    </a>
+  <div class="cart-items">
+      <table>
+          <tbody>
+              <tr>
+                  <td><img [src]="item().pictureUrl" alt="T-shirt"></td>
+                  <td>T-shirt</td>
+                  <td>
+                      <input type="number" value="{{item().quantity}}" min="1" max="10" style="width: 50px;">
+                  </td>
+                  <td>${{item().price}}</td>
+                  <td>${{item().quantity * item().price}}</td>
+                  <td><button class="show-details" [routerLink]="'/shop/' + item().productId">show Details</button></td>
+                  <td>
+                    <button mat-button class="delete-btn" (click)="removeItemFromCart()">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+          </tbody>
+      </table>
   </div>
-
-  <div class="two">
-    <span>{{ item().productName }}</span>
-    <button>Delete</button>
   </div>
-
-  <div class="three">
-    <span>- {{ item().quantity }} + Total Price: ${{ item().price * item().quantity }}</span>
-  </div>
-</div>
 

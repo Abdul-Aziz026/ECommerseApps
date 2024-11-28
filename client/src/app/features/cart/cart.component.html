@@ -1,8 +1,12 @@
 <div class="container-for-top"></div>
 <section>
+    <h1 style="text-align: center;">Cart Summay:</h1>
     <div>
         @for (item of cartService.cart()?.items; track $index) {
-            <app-cart-item [item]="item"></app-cart-item>/>
+            <app-cart-item [item]="item"></app-cart-item>
         }
+    </div>
+    <div>
+        <app-order-summary></app-order-summary>
     </div>
 </section>
