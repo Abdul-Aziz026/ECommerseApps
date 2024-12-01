@@ -14,9 +14,9 @@ namespace ECommerseApp.Controllers
             cartService = _cartService;
         }
         [HttpGet]
-        public async Task<ActionResult<ShoppingCart?>> GetCartAsync(string key)
+        public async Task<ActionResult<ShoppingCart?>> GetCartAsync(string id)
         {
-            var cart = await cartService.GetCartAsync(key);
+            var cart = await cartService.GetCartAsync(id);
 
 
             return Ok(cart);
