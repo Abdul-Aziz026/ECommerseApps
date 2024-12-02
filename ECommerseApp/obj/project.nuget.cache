@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AqVgTQE4P+/3AlhJcRD/xt2gurg2ktJ24yrnST1LsEnNYnimAAScjA4hNy3Z2R2AMvCoXOaMGjLVtzkdzNMQuQ==",
+  "dgSpecHash": "WWzcf/YkA+wNXSKP3oKCg4/6sxelYxOMnsEUTAarTDQ2hbufxMaGTIsjwUd+nNT4uTY8D2BPVptEZtcGXie9HQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\ECommerseApp\\ECommerseApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\azizur\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\azizur\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\azizur\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.11\\microsoft.aspnetcore.authentication.jwtbearer.8.0.11.nupkg.sha512",
     "C:\\Users\\azizur\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
