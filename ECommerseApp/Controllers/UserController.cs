@@ -3,10 +3,12 @@ using Core.Interface;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using StackExchange.Redis;
 
 namespace ECommerseApp.Controllers
 {
     [ApiController]
+    [Route("api/account/")]
     public class UserController : Controller
     {
 
@@ -20,7 +22,7 @@ namespace ECommerseApp.Controllers
         }
 
 
-        [HttpPost("user/register")]
+        [HttpPost("register")]
         [AllowAnonymous]  // Allow anonymous access to registration
         public async Task<IActionResult> RegisterUser(RegisterDTO user)
         {
@@ -41,7 +43,7 @@ namespace ECommerseApp.Controllers
             return Ok(userDto);
         }
 
-        [HttpPost("user/login")]
+        [HttpPost("login")]
         [AllowAnonymous]  // Allow anonymous access to registration
         public async Task<IActionResult> Login(LoginDTO loginDto)
         {
@@ -64,14 +66,14 @@ namespace ECommerseApp.Controllers
         }
 
 
-        [HttpGet("user/admin")]
+        [HttpGet("admin")]
         [Authorize(Roles = "admin")]
         public ActionResult AdminAuthorizationTest()
         {
             return Ok("Admin Api Accessed...");
         }
 
-        [HttpGet("user/user")]
+        [HttpGet("user")]
         [Authorize]
         public ActionResult UserAuthorizationTest()
         {
@@ -79,12 +81,17 @@ namespace ECommerseApp.Controllers
         }
 
         [Authorize]
-        [HttpPost("user/logout")]
-        public IActionResult Logout()
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
         {
-            // Inform the client to clear the token (e.g., by removing it from local storage or cookies)
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            // Assuming you store blacklisted tokens in Redis
+            // await _redis.SetAsync($"blacklistedToken:{token}", true, TimeSpan.FromHours(1));
+
             return Ok(new { message = "Logged out successfully." });
         }
+
 
 
         private async Task<bool> UserExist(string username)
