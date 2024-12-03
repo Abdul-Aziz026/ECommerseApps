@@ -22,7 +22,7 @@ export class ProductDetailsComponent implements OnInit{
   loadProduct() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if (!id) return;
-    this.shopService.getProduct(+id).subscribe({
+    this.shopService.getProduct(id).subscribe({
       next: Response => this.product = Response,
       error: error => console.log(error.message),
       complete: () => console.log("Complete Product fetch: " + id)

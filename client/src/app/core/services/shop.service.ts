@@ -24,6 +24,7 @@ export class ShopService {
       params = params.set('brand', brand);
       // params.append('brands', brands.join(','));
     }
+
     if (types && types.length > 0) {
       let type: string = '';
       for (let t of types) {
@@ -33,11 +34,10 @@ export class ShopService {
       params = params.set('type', type);
       // params.append('types', types.join(','));
     }
-
     return this.http.get<any>(this.baseUrl + 'products', {params});
   }
 
-  getProduct(id: number) {
+  getProduct(id: string) {
     console.log("ServiceLayer: " + id);
     return this.http.get<any> (this.baseUrl + 'products/' + id);
   }

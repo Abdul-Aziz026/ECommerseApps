@@ -11,6 +11,7 @@ export class ProductService {
   http = inject(HttpClient);
 
   createProduct(product: addProduct): Observable<addProduct> {
-    return this.http.post<addProduct>(`${this.baseUrl}/addproducts`, product);
+    console.log(product);
+    return this.http.post<addProduct>(`${this.baseUrl}addproducts`, product);
   }
 }

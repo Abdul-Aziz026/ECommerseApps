@@ -73,7 +73,7 @@ namespace ECommerse_App.Controllers
             try
             {
                 await repo.Add(product);
-                return Ok("Product Add Successful!");
+                return Ok(new {message = "Product Add Successful!"});
             }
             catch (Exception ex)
             {

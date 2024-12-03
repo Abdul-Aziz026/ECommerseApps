@@ -8,6 +8,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
   baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
@@ -54,6 +55,7 @@ export class CartService {
   }
 
   setCart(cart: Cart) {
+    console.log("set cart");
     return this.http.post<Cart>(this.baseUrl + 'cart', cart).subscribe({
       next: cart => this.cart.set(cart)
     })
@@ -75,13 +77,14 @@ export class CartService {
 
       // Update cart items
       cart.items = this.addOrUpdateItem(cart.items, cartItem, quantity);
+      console.log("after push: " + cartItem.productId);
       this.setCart(cart);
     }
 
-    removeItemFromCart(productId: number, quantity = 1) {
+    removeItemFromCart(productId: string, quantity = 1) {
       const cart = this.cart();
       if (!cart) return;
-      const index = cart.items.findIndex((x: { productId: number; }) => x.productId === productId);
+      const index = cart.items.findIndex((x: { productId: string; }) => x.productId === productId);
       if (index !== -1) {
         if (cart.items[index].quantity > quantity) {
           cart.items[index].quantity -= quantity;
@@ -107,16 +110,19 @@ export class CartService {
     
     private addOrUpdateItem(items: CartItem[], item: CartItem, quantity: number): CartItem[] {
       const index = items.findIndex(x => x.productId === item.productId);
+      console.log("add or update item fun in: ");
       if (index === -1) {
         item.quantity = quantity;
         items.push(item);
       } else {
         items[index].quantity += quantity;
       }
+      console.log("add or update item fun out: ");
       return items;
     }
     
     private mapProductToCartItem(item: Product): CartItem {
+      console.log("Map fun")
       return {
         productId: item.id,
         productName: item.name,

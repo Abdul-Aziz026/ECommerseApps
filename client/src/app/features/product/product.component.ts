@@ -31,7 +31,7 @@ export class ProductComponent {
         alert('Product created successfully!');
       },
       error: (error) => {
-        console.error('Error creating product:', error);
+        console.error('Error creating product:', error.message);
         alert('Failed to create product');
       }
     });
