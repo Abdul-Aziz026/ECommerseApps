@@ -9,6 +9,7 @@ import { CartComponent } from './features/cart/cart.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
 import { LoginComponent } from './features/account/login/login.component';
 import { RegisterComponent } from './features/account/register/register.component';
+import { ProductComponent } from './features/product/product.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path: 'checkout', component: CheckoutComponent},
     {path: 'account/login', component: LoginComponent},
     {path: 'account/register', component: RegisterComponent},
+    {path: 'addproduct', component: ProductComponent},
     {path: 'test-error', component: TestErrorComponent},
     {path: 'not-found', component: NotFoundComponent},
     {path: 'server-error', component: ServerErrorComponent},

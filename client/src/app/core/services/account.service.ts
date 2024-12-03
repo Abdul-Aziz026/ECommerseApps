@@ -12,27 +12,24 @@ export class AccountService {
 
   currentUser = signal<User | null>(null);
 
+  register(values: any) {
+    return this.http.post(this.baseUrl + 'account/register', values);
+  }
+
   login(values: any) {
-    return this.http.post<User>(`${this.baseUrl}account/login`, values).subscribe({
-      next: (user) => {
-        if (user) {
-          this.setCurrentUser(user);
-        }
-      },
-      error: (error) => {
-        console.error('Login failed:', error);
-      }
-    });
+    return this.http.post<User>(`${this.baseUrl}account/login`, values);
   }
   
-  private setCurrentUser(user: User) {
+  public setCurrentUser(user: User) {
     this.currentUser.set(user);
     localStorage.setItem('user', JSON.stringify(user)); // Store user data in local storage
   }
 
   logout() {
-    this.currentUser.set(null);
-    localStorage.removeItem('user'); // Clear user data on logout
+    console.log("Come to service layer...");
+    return this.http.post(this.baseUrl + 'account/logout', {});
+    // this.currentUser.set(null);
+    // localStorage.removeItem('user'); // Clear user data on logout
   }
 
 }

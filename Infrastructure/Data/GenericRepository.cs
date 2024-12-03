@@ -14,7 +14,7 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(string id)
         {
             var collection = _context.GetCollection<T>("product"); // Dynamically get the collection
             return await collection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -47,7 +47,7 @@ namespace Infrastructure.Data
             await collection.ReplaceOneAsync(x => x.Id == entity.Id, entity);
         }
 
-        public async Task Remove(int id)
+        public async Task Remove(string id)
         {
             var collection = _context.GetCollection<T>("product");
             await collection.DeleteOneAsync(x => x.Id == id);
@@ -69,7 +69,7 @@ namespace Infrastructure.Data
             }
         }
 
-        public async Task<bool> Exist(int id)
+        public async Task<bool> Exist(string id)
         {
             var collection = _context.GetCollection<T>("product");
             return await collection.Find(x => x.Id == id).AnyAsync();

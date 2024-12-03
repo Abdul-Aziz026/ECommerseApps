@@ -34,7 +34,7 @@ namespace ECommerse_App.Controllers
         }
 
         [HttpGet("products/{id}")]
-        public async Task<IActionResult> GetProductById(int id)
+        public async Task<IActionResult> GetProductById(string id)
         {
 
             var product = await repo.GetByIdAsync(id);
@@ -87,7 +87,7 @@ namespace ECommerse_App.Controllers
         }
 
         [HttpPut("products/{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
+        public async Task<IActionResult> UpdateProduct(string id, [FromBody] Product product)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace ECommerse_App.Controllers
         }
 
         [HttpDelete("products/{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(string id)
         {
             try
             {

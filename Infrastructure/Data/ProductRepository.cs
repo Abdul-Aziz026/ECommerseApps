@@ -58,7 +58,7 @@ namespace Infrastructure.Data
         }
 
 
-        public async Task<Product?> GetProductById(int id)
+        public async Task<Product?> GetProductById(string id)
         {
 
             try
@@ -102,7 +102,7 @@ namespace Infrastructure.Data
             }
         }
 
-        public async Task<int> UpdateProduct(int id, Product prod)
+        public async Task<int> UpdateProduct(string id, Product prod)
         {
             try
             {
@@ -132,7 +132,7 @@ namespace Infrastructure.Data
             }
         }
 
-        public async Task<bool> DeleteProduct(int id)
+        public async Task<bool> DeleteProduct(string id)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace Infrastructure.Data
             }
         }
 
-        public async Task<bool> ExistProduct(int id)
+        public async Task<bool> ExistProduct(string id)
         {
 
             var result = await context.product.Find(p => p.Id == id).FirstOrDefaultAsync();

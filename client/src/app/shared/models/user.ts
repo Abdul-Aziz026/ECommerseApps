@@ -1,7 +1,6 @@
 export type User = {
     username: string,
-    password: string,
-    role: string
+    token: string
 }
 
 export type address = {
@@ -10,3 +9,14 @@ export type address = {
     country: string,
     postalCode: string
 }
+
+export interface addProduct {
+    name: string;
+    description: string;
+    price: number;
+    pictureUrl: string;
+    type: string;
+    brand: string;
+    quantityInStock: number;
+  }
+  

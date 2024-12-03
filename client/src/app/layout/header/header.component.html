@@ -12,9 +12,14 @@
             <mat-icon>shopping_cart</mat-icon>
             {{cartService.itemCount()}}
         </button>
-        
-        <button routerLink="account/login" class="login">Login</button>
-        <button routerLink="account/register" class="register">Register</button>
+        @if(accountService.currentUser()) {
+            <button routerLink="addproduct" class="login">Add Product</button>
+            <button (click)="logout()" class="logout">Logout</button>
+        }
+        @else {
+            <button routerLink="account/login" class="login">Login</button>
+            <button routerLink="account/register" class="register">Register</button>
+        }
     </div>
 </header>
 

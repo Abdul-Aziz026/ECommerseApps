@@ -1,3 +1,13 @@
-<div class="container-for-top"></div>
 
-<p>login works!</p>
+<div class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="username" style="font-size: 20px;">Username:</label>
+      <input type="text" id="username" [(ngModel)]="loginData.username" name="username" placeholder="Enter username" required>
+  
+      <label for="password" style="font-size: 20px;">Password:</label>
+      <input type="password" id="password" [(ngModel)]="loginData.password" name="password" placeholder="Enter password" required>
+  
+      <button type="submit">Login</button>
+    </form>
+  </div>

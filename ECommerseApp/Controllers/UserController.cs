@@ -74,14 +74,15 @@ namespace ECommerseApp.Controllers
         }
 
         [HttpGet("user")]
-        [Authorize]
+        [Authorize(Roles="user")]
         public ActionResult UserAuthorizationTest()
         {
             return Ok("User Api Accessed...");
         }
 
-        [Authorize]
         [HttpPost("logout")]
+        // [Authorize]
+        [AllowAnonymous]  // Allow anonymous access to registration
         public async Task<IActionResult> Logout()
         {
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");

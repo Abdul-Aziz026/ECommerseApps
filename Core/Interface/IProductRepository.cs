@@ -7,12 +7,12 @@ namespace Core.Interface
         
         string Root();
         Task<List<Product>?> GetProducts(string? brand, string? type, string? sort);
-        Task<Product?> GetProductById(int id);
+        Task<Product?> GetProductById(string id);
         Task<IReadOnlyList<string>> GetBrands();
         Task<IReadOnlyList<string>> GetTypes();
         Task<string> AddProduct(Product prod);
-        Task<int> UpdateProduct(int id, Product prod);
-        Task<bool> DeleteProduct(int id);
-        Task<bool> ExistProduct(int id);
+        Task<int> UpdateProduct(string id, Product prod);
+        Task<bool> DeleteProduct(string id);
+        Task<bool> ExistProduct(string id);
     }
 }
