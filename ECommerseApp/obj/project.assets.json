@@ -499,7 +499,6 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11",
-          "Microsoft.IdentityModel.Tokens": "8.2.1",
           "MongoDB.Driver": "3.0.0",
           "Swashbuckle.AspNetCore": "7.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.2.1"
@@ -1589,19 +1588,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\azizur\\.nuget\\packages\\": {}
+    "C:\\Users\\azizur\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\ECommerseApp\\ECommerseApp.csproj",
-      "projectName": "ECommerseApp",
-      "projectPath": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\ECommerseApp\\ECommerseApp.csproj",
+      "projectUniqueName": "C:\\Abdul-Aziz\\Project\\ECommerseApps\\ECommerseApp\\API.csproj",
+      "projectName": "API",
+      "projectPath": "C:\\Abdul-Aziz\\Project\\ECommerseApps\\ECommerseApp\\API.csproj",
       "packagesPath": "C:\\Users\\azizur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\ECommerseApp\\obj\\",
+      "outputPath": "C:\\Abdul-Aziz\\Project\\ECommerseApps\\ECommerseApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\azizur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1615,11 +1619,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\Core\\Core.csproj"
+            "C:\\Abdul-Aziz\\Project\\ECommerseApps\\Core\\Core.csproj": {
+              "projectPath": "C:\\Abdul-Aziz\\Project\\ECommerseApps\\Core\\Core.csproj"
             },
-            "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\azizur\\Learn\\Project\\ECommerseApp\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Abdul-Aziz\\Project\\ECommerseApps\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Abdul-Aziz\\Project\\ECommerseApps\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -1678,7 +1682,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

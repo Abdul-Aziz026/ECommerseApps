@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ShopService } from '../../../core/services/shop.service';
 import { Product } from '../../../shared/models/product';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-details',
@@ -13,6 +14,10 @@ export class ProductDetailsComponent implements OnInit{
   private shopService = inject(ShopService);
   private activatedRoute = inject(ActivatedRoute);
   product?: Product;
+
+  constructor(private dialogService: MatDialog) {
+
+  }
 
   ngOnInit(): void {
     console.log("Hello");
@@ -27,5 +32,9 @@ export class ProductDetailsComponent implements OnInit{
       error: error => console.log(error.message),
       complete: () => console.log("Complete Product fetch: " + id)
     })
+  }
+
+  editProduct(productId: string) {
+
   }
 }

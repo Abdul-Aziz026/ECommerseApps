@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using Core.Entities;
-using Core.Interface;
+using Core.Interfaces.Services;
 using StackExchange.Redis;
 
 namespace Infrastructure.Services

@@ -1,6 +1,5 @@
 ﻿using Core.Entities;
-using Core.Interface;
-using Infrastructure.Data;
+using Core.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -20,18 +19,11 @@ namespace Infrastructure.Services
         }
         public string CreateToken(User user)
         {
-            // Define claims including Name and Role (or other necessary claims)
-            /*var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim("role", user.Role) // Custom role claim name
-            };*/
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Role, user.Role) // or a custom claim like "role"
             };
-
 
             // Secret key for signing the JWT (ensure this is the same as in your configuration)
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));

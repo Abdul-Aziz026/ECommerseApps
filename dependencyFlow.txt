@@ -1,0 +1,69 @@
+﻿API Layer
+    ↓ (depends on)
+Core Layer
+    ↑ (implements interfaces defined in Core)
+Infrastructure Layer
+
+
+
+API Layer:
+    Depends on: Core + Infrastructure
+Core Layer:
+    Depends on: Nothing (pure business logic)
+Infrastructure Layer:
+    Depends on: Core only
+
+
+
+
+
+Core/
+├── Interfaces/
+│   ├── Services/
+│   │   ├── IUserService.cs          # Business service interface
+│   │   ├── IOrderService.cs         # Business service interface
+│   │   ├── IEmailService.cs         # Infrastructure service interface
+│   │   ├── ITokenService.cs         # Infrastructure service interface
+│   │   └── IFileStorageService.cs   # Infrastructure service interface
+│   └── Repositories/
+├── Services/
+│   ├── UserService.cs               # ✅ BUSINESS LOGIC
+│   ├── OrderService.cs              # ✅ BUSINESS LOGIC
+│   └── ProductService.cs            # ✅ BUSINESS LOGIC
+└── Entities/
+
+Infrastructure/
+├── Services/
+│   ├── EmailService.cs              # ✅ EXTERNAL INTEGRATION
+│   ├── TokenService.cs              # ✅ TECHNICAL IMPLEMENTATION
+│   ├── FileStorageService.cs        # ✅ EXTERNAL INTEGRATION
+│   └── CacheService.cs              # ✅ TECHNICAL IMPLEMENTATION
+└── Data/
+
+
+
+INFRASTRUCTURE Services (External Integrations)
+Implement in: Infrastructure/Services/ or Infrastructure/External/
+Purpose: External system integrations, technical implementations
+What goes in Infrastructure Services:
+
+Email/SMS sending
+File storage operations
+Payment processing
+Third-party API calls
+Caching implementations
+Authentication/JWT token generation
+Logging implementations
+
+
+
+CORE Services (Business Logic)
+Implement in: Core/Services/
+Purpose: Domain business rules, validation, workflows
+What goes in Core Services:
+
+Business rules and validation
+Domain logic and workflows
+Coordinating multiple repositories
+Business calculations
+Domain-specific operations
