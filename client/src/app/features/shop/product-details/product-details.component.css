@@ -81,3 +81,13 @@
     color: #555;
     line-height: 1.6;
 }
+
+.edit-button {
+    width: 109px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: #3d7ef9;
+    color: white;
+    cursor: pointer;
+}

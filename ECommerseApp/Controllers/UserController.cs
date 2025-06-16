@@ -1,9 +1,8 @@
 ﻿using Core.Entities.DTO;
 using Core.Interface;
-using Infrastructure.Services;
+using Core.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using StackExchange.Redis;
 
 namespace ECommerseApp.Controllers
 {
@@ -26,13 +25,7 @@ namespace ECommerseApp.Controllers
         [AllowAnonymous]  // Allow anonymous access to registration
         public async Task<IActionResult> RegisterUser(RegisterDTO user)
         {
-
-            Console.WriteLine("username: " + user.Username + " password: " + user.Password + " role: " + user.Role);
-            if (await UserExist(user.Username))
-            {
-                return BadRequest("User already Exist");
-            }
-            var registerUser = await _userService.RegisterUser(user);
+            var registerUser = await _userService.RegisterUser(user.Username, user.Password, user.Role);
 
             var userDto = new UserDTO
             {
@@ -44,13 +37,13 @@ namespace ECommerseApp.Controllers
         }
 
         [HttpPost("login")]
-        [AllowAnonymous]  // Allow anonymous access to registration
+        [AllowAnonymous]  // Allow anonymous access to login
         public async Task<IActionResult> Login(LoginDTO loginDto)
         {
             Console.WriteLine("login user username: " + loginDto.Username + " password: " + loginDto.Password);
             try
             {
-                var loginUser = await _userService.Login(loginDto);
+                var loginUser = await _userService.Login(loginDto.Username, loginDto.Password);
                 var userDto = new UserDTO
                 {
                     Username = loginDto.Username,
@@ -91,18 +84,6 @@ namespace ECommerseApp.Controllers
             // await _redis.SetAsync($"blacklistedToken:{token}", true, TimeSpan.FromHours(1));
 
             return Ok(new { message = "Logged out successfully." });
-        }
-
-
-
-        private async Task<bool> UserExist(string username)
-        {
-            bool haveUser = await _userService.UserExist(username);
-            if (haveUser)
-            {
-                return true;
-            }
-            return false;
         }
     }
 }

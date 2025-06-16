@@ -1,12 +1,17 @@
 using Core.Interface;
-using ECommerseApp.Middleware;
+using Core.Interfaces.Repository;
+using Core.Interfaces.Services;
 using Infrastructure.Data;
+using Infrastructure.Data.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
 using System.Security.Claims;
 using System.Text;
+using Core.Services;
+using Infrastructure.Data.Context;
+using Infrastructure.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +30,9 @@ var configuration = builder.Configuration;
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserServices, UserServices>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddSingleton<ICartService, CartService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IMongoDbContext, MongoDbContext>();
 builder.Services.AddCors();
 
 // add logger for debug easy...
@@ -48,13 +55,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddSingleton<MongoDbContext>(sp =>
-{
-    string connectionUri = configuration.GetSection("ConnectionStrings:connectionUri").Value; // Adjust if needed
-    string databaseName = configuration.GetSection("ConnectionStrings:databaseName").Value;
-
-    return new MongoDbContext(connectionUri, databaseName);
-});
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 {
@@ -68,11 +70,6 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     var configuration = ConfigurationOptions.Parse(connString, true);
     return ConnectionMultiplexer.Connect(configuration);
 });
-
-
-
-// Register CartService
-builder.Services.AddSingleton<ICartService, CartService>();
 
 
 var app = builder.Build();
